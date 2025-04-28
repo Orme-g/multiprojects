@@ -1,0 +1,149 @@
+
+
+.ticTacToe
+    margin-top: 100px
+    padding-bottom: 100px
+    overflow: hidden
+    min-height: 100vh
+
+    &__header 
+        min-height: 150px
+        display: flex
+        justify-content: space-between
+
+    &__player
+        width: 35%
+        display: flex
+        flex-flow: column
+        color: #1facbd
+        align-items: center
+
+    &__restart_field
+        width: 30%
+        display: flex
+        justify-content: center
+
+    &__restart_button_background
+        background-color: #1facbd
+        height: 75px
+        width: 250px
+
+
+    &__restart_button
+        cursor: pointer
+        transform: translate(15px, 15px)
+        height: 100%
+        width: 100%
+        display: block
+        color: #282c34
+        font-size: 40px
+        text-transform: uppercase
+        font-weight: bold
+        border: 3px solid black
+        background-color: transparent
+        transition: transform 0.1s
+
+    &__restart_button:active
+        transform: translate(0px, 0px)
+
+    &__field
+        margin: 0 auto
+        width: 500px
+        height: 500px
+        background-image: url(../assets/table.PNG)
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center center
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        grid-template-rows: 37% 30% 33%
+        margin-bottom: 100px
+        &_crossline
+            position: absolute
+            height: 500px
+            width: 500px
+            background-size: contain
+            background-repeat: no-repeat
+            &.a1a2a3
+                background-image: url(../assets/cross-line_LtoR.PNG)
+                background-position: 10% 10%
+            &.b1b2b3
+                background-image: url(../assets/cross-line_LtoR.PNG)
+                background-position: 50% 50%
+            &.c1c2c3
+                background-image: url(../assets/cross-line_LtoR.PNG)
+                background-position: 90% 90%
+            &.a1b1c1
+                background-image: url(../assets/cross-line_TtoB.PNG)
+                background-position: 10% 10%
+            &.a2b2c2
+                background-image: url(../assets/cross-line_TtoB.PNG)
+                background-position: 50% 50%
+            &.a3b3c3
+                background-image: url(../assets/cross-line_TtoB.PNG)
+                background-position: 90% 90%
+            &.a1b2c3
+                background-image: url(../assets/cross_RtoL.PNG)
+                background-position: center center
+            &.a3b2c1
+                background-image: url(../assets/cross_LtoR.PNG)
+                background-position: center center
+                
+    &__buttons-block
+        display: flex
+        flex-direction: column
+        gap: 20px
+        align-items: center
+.display-line
+    display: block
+.hide-line
+    display: none
+.x-player 
+    background-image: url(../assets/figure-X.PNG)
+    background-size: cover
+.o-player 
+    background-image: url(../assets/figure-O.PNG)
+    background-size: cover
+
+.test
+    height: 60px
+    width: 200px
+    margin-bottom: 100px
+    margin-left: 40px
+
+@media (max-width: 700px) 
+
+    .ticTacToe
+        margin-top: 30px
+        &__header
+            flex-direction: column
+            align-items: center
+            margin-bottom: 40px
+        &__player
+            width: 99%
+            flex-direction: row
+            justify-content: center
+            align-items: center
+        &__restart_field
+            width: 90%
+        
+        &__field
+            height: 95vw
+            width: 95vw
+            &_crossline
+                height: 95vw
+                width: 95vw
+        &__restart_button_background
+            height: 50px
+            width: 200px
+        &__restart_button
+            font-size: 30px
+            transform: translate(10px, 10px)
+
+    .player_1
+        order: 1
+    .player_2
+        order: 2
+        margin-bottom: 20px
+    .ticTacToe__restart_field
+        order: 3

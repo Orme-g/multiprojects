@@ -1,0 +1,106 @@
+
+.ticTacToe
+    &__winner-block
+        width: 120px
+        height: 50px
+        line-height: 50px
+        background-color: #1facbd
+        color: #282c34
+        text-align: center
+        vertical-align: middle
+        font-size: 30px
+        font-weight: 600
+
+    &__player_data
+        display: flex
+        flex-direction: row
+        position: relative
+        justify-content: center
+        align-items: center
+    &__player_sign
+        margin-right: 5px
+        height: 50px
+        width: 50px
+        &.sign-x
+            background-image: url(../assets/figure-X.PNG)
+            background-size: cover
+            transform: translateY(3px)
+        &.sign-o
+            background-image: url(../assets/figure-O.PNG)
+            background-size: cover
+            transform: translateY(5px)
+        
+    &__player_name
+        font-size: 40px
+        text-transform: uppercase
+
+    &__player_score
+        margin-left: 20px
+        font-size: 40px
+    &__active-player-mark-field
+        height: 50px
+    &__active-player-mark
+        height: 100%
+        width: 120px
+        background-image: url(../assets/selector_2.PNG)
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center center
+        transition: opacity 0.2s, transform 0.5s
+
+
+
+
+.show-mark 
+    opacity: 1
+    transform: translateX(0)
+
+
+.hide-mark
+    opacity: 0
+    transform: translateX(400px)
+
+
+.show 
+    opacity: 1
+
+.hide 
+    opacity: 0
+
+
+@media (max-width: 700px) 
+    .ticTacToe
+        &__winner-block
+            width: 50px
+            height: 35px
+            line-height: 35px
+            background-color: #1facbd
+            color: #282c34
+            text-align: center
+            vertical-align: middle
+            font-size: 22px
+            font-weight: 600
+            margin-right: 5px
+        &__player_data
+            max-width: 80%
+            overflow: hidden
+        &__player_name
+            font-size: 25px
+            white-space: nowrap
+        &__player_score
+            font-size: 25px
+            margin-left: 10px
+            position: unset
+        
+        &__active-player-mark-field
+            height: 50px
+        &__active-player-mark
+            height: 50px
+            width: 50px
+            background-image: url(../assets/selector_1.PNG)
+
+    .show-mark 
+        transform: translateX(0)
+
+    .hide-mark
+        transform: translateX(100px)
