@@ -12,9 +12,9 @@ const Navigation = () => {
                 <li className="header__links-item">
                     <NavLink to="/tic-tac-toe">Tic Tac Toe</NavLink>
                 </li>
-                {/* <li className="header__links-item">
-                    <NavLink to="#">Link somwhere</NavLink>
-                </li> */}
+                <li className="header__links-item">
+                    <NavLink to="/concentration">Concentration</NavLink>
+                </li>
                 {/* <li className="header__links-item">
                     <NavLink to="#">Link somwhere</NavLink>
                 </li> */}

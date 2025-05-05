@@ -1,0 +1,38 @@
+.game-card {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.game-card.turn > .front-side {
+    transform: perspective(600px) rotateY(-180deg);
+}
+.game-card.turn > .back-side {
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.front-side,
+.back-side {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: transform 0.3s linear;
+    position: absolute;
+}
+.front-side {
+    transform: perspective(600px) rotateY(0deg);
+    background-color: #fff;
+}
+
+.back-side {
+    transform: perspective(600px) rotateY(180deg);
+    // background-color: red;
+}
+// .game-card:hover > .front-side {
+//     transform: perspective(600px) rotateY(-180deg);
+// }
+// .game-card:hover > .back-side {
+//     transform: perspective(600px) rotateY(0deg);
+// }
