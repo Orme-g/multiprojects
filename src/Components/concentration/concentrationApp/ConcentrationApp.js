@@ -1,44 +1,58 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import GameCard from "../gameCard/GameCard";
 import { cardsData, shuffleCards } from "../data/data";
 import "./concentrationApp.scss";
 
 const ConcentrationApp = () => {
-    console.log("Parent rendered");
     const [cards, setCards] = useState(() => shuffleCards(cardsData));
-    const [turnedCardsData, setTurnedCardsData] = useState([]);
     const [turnedCardsIds, setTurnedCardsIds] = useState([]);
+    const [turnedCardColor, setTurnedCardColor] = useState([]);
     const [turns, setTurns] = useState(0);
-    function cardTurnHandler(cardId, color) {
+    const cardTurnHandler = (cardId, color) => {
         let cardsCopy = [...cards];
-        if (!turnedCardsIds.includes(cardId) && turns <= 2) {
-            setTurnedCardsData((turnedCardsData) => [...turnedCardsData, [cardId, color]]);
-            setTurns((turns) => turns + 1);
-            setTurnedCardsIds([...turnedCardsIds, cardId]);
+        if (!turnedCardsIds.includes(cardId)) {
             cardsCopy.forEach((item) => {
                 if (item.id === cardId) {
                     item.isTurned = !item.isTurned;
                 }
             });
-            setCards(cardsCopy);
+            setTurns((turns) => turns + 1);
+            setTurnedCardsIds([...turnedCardsIds, cardId]);
+            setTurnedCardColor([...turnedCardColor, color]);
             if (turns === 2) {
-                cardsCopy.forEach((item) => {
-                    if (item.id === turnedCardsIds[0] || item.id === turnedCardsIds[1]) {
-                        item.isTurned = false;
-                    }
-                });
-                setTurns(1);
+                if (turnedCardColor[0] === turnedCardColor[1]) {
+                    cardsCopy.forEach((item) => {
+                        if (item.id === turnedCardsIds[0] || item.id === turnedCardsIds[1]) {
+                            item.isFinished = true;
+                        }
+                    });
+                    setTurns(1);
+                    setTurnedCardsIds([cardId]);
+                    setTurnedCardColor([color]);
+                } else {
+                    cardsCopy.forEach((item) => {
+                        if (item.id === turnedCardsIds[0] || item.id === turnedCardsIds[1]) {
+                            item.isTurned = !item.isTurned;
+                        }
+                    });
+                    setTurns(1);
+                    setTurnedCardsIds([cardId]);
+                    setTurnedCardColor([color]);
+                }
             }
         }
-    }
-    const renderCards = cards.map(({ id, color, isTurned }) => (
+        setCards(cardsCopy);
+    };
+    const renderCards = cards.map(({ id, color, isTurned, isFinished }) => (
         <GameCard
             key={id}
             cardId={id}
             cardTurnHandler={cardTurnHandler}
+            // updateLastData={updateLastData}
             color={color}
             isTurned={isTurned}
+            isFinished={isFinished}
         />
     ));
     return (

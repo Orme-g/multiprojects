@@ -1,12 +1,10 @@
-import { useState } from "react";
-
 import "./gameCard.scss";
 
-const GameCard = ({ cardId, cardTurnHandler, color, isTurned }) => {
-    // const [action, setAction] = useState(isTurned);
-
+const GameCard = ({ cardId, cardTurnHandler, color, isTurned, isFinished }) => {
     function handleTurn() {
-        // setAction(true);
+        if (isFinished) {
+            return;
+        }
         cardTurnHandler(cardId, color);
     }
     return (
