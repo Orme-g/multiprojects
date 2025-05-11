@@ -9,6 +9,13 @@ const ConcentrationApp = () => {
     const [turnedCardsIds, setTurnedCardsIds] = useState([]);
     const [turnedCardColor, setTurnedCardColor] = useState([]);
     const [turns, setTurns] = useState(0);
+    function restartGame() {
+        console.log(shuffleCards(cardsData));
+        setTurns(0);
+
+        setTurnedCardColor([]);
+        setTurnedCardsIds([]);
+    }
     const cardTurnHandler = (cardId, color) => {
         let cardsCopy = [...cards];
         if (!turnedCardsIds.includes(cardId)) {
@@ -49,7 +56,6 @@ const ConcentrationApp = () => {
             key={id}
             cardId={id}
             cardTurnHandler={cardTurnHandler}
-            // updateLastData={updateLastData}
             color={color}
             isTurned={isTurned}
             isFinished={isFinished}
@@ -57,6 +63,7 @@ const ConcentrationApp = () => {
     ));
     return (
         <div className="concentration-app">
+            <button onClick={restartGame}>Restart</button>
             <div className="game-field">{renderCards}</div>
         </div>
     );
