@@ -28,6 +28,7 @@ const TicTacToe = () => {
     const [gameFinished, setGameFinished] = useState(false);
     const [modalState, setModalState] = useState(true);
     const [winnerPattern, setWinnerPattern] = useState(null);
+    const [lastWinner, setLastWinner] = useState("x");
     const prevPlayer = useRef(firstPlayerName);
 
     useEffect(() => {
@@ -72,6 +73,7 @@ const TicTacToe = () => {
         setFieldChecked(initialField);
         setDisabledFields([]);
         setActivePlayer(prevPlayer.current);
+        setActivePlayer(lastWinner);
         setGameFinished(false);
         setWinner(null);
         setWinnerPattern(null);
@@ -120,10 +122,12 @@ const TicTacToe = () => {
         if (prevPlayer.current === "x") {
             setFirstPlayerScore((firstPlayerScore) => firstPlayerScore + 1);
             setWinner("x");
+            setLastWinner("x");
             setActivePlayer(null);
         } else if (prevPlayer.current === "o") {
             setSecondPlayerScore((secondPlayerScore) => secondPlayerScore + 1);
             setWinner("o");
+            setLastWinner("o");
             setActivePlayer(null);
         }
         setWinnerPattern(winnerPattern);

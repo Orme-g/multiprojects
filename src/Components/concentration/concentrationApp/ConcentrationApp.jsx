@@ -13,6 +13,7 @@ const ConcentrationApp = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [action, setAction] = useState(null);
     const [pairsFound, setPairsFound] = useState(0);
+    const [gameFinished, setGameFinished] = useState(false);
     useEffect(() => {
         if (turnedCardName.length === 2 && turnedCardName[0] === turnedCardName[1]) {
             const cardsCopy = [...cards];
@@ -28,17 +29,18 @@ const ConcentrationApp = () => {
         }
     }, [turnedCardName]);
     useEffect(() => {
-        console.log(pairsFound);
         if (pairsFound === cards.length / 2 && cards.length > 0) {
-            console.log("All found!");
+            setGameFinished(true);
         }
     }, [pairsFound]);
+
     function resetState() {
         setTurns(0);
         setPairsFound(0);
         setTurnedCardName([]);
         setTurnedCardsIds([]);
         setIsModalOpen(false);
+        setGameFinished(false);
     }
     function modalController() {
         setIsModalOpen((isModalOpen) => !isModalOpen);
@@ -109,7 +111,7 @@ const ConcentrationApp = () => {
             isTurned={isTurned}
             isFinished={isFinished}
             image={image}
-            gameFinished={false}
+            gameFinished={gameFinished}
         />
     ));
     return (
