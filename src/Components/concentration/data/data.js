@@ -1,70 +1,163 @@
+import star from "../assets/Star.svg";
+import pear from "../assets/Pear.svg";
+import storm from "../assets/Storm.svg";
+import heart from "../assets/Heart.svg";
+import ball from "../assets/Ball.svg";
+import coffee from "../assets/Coffee.svg";
+import icecream from "../assets/Icecream.svg";
+import cup from "../assets/Cup.svg";
+import triangle from "../assets/Triangle.svg";
+import strawberry from "../assets/Strawberry.svg";
+
 export const cardsData = [
     {
         id: 1,
-        color: "yellow",
+        name: "star",
         isTurned: false,
         isFinished: false,
+        image: star,
     },
     {
         id: 2,
-        color: "yellow",
+        name: "star",
         isTurned: false,
         isFinished: false,
+        image: star,
     },
     {
         id: 3,
-        color: "blue",
+        name: "pear",
         isTurned: false,
         isFinished: false,
+        image: pear,
     },
     {
         id: 4,
-        color: "blue",
+        name: "pear",
         isTurned: false,
         isFinished: false,
+        image: pear,
     },
     {
         id: 5,
-        color: "red",
+        name: "heart",
         isTurned: false,
         isFinished: false,
+        image: heart,
     },
     {
         id: 6,
-        color: "red",
+        name: "heart",
         isTurned: false,
         isFinished: false,
+        image: heart,
     },
     {
         id: 7,
-        color: "green",
+        name: "storm",
         isTurned: false,
         isFinished: false,
+        image: storm,
     },
     {
         id: 8,
-        color: "green",
+        name: "storm",
         isTurned: false,
         isFinished: false,
+        image: storm,
     },
     {
         id: 9,
-        color: "orange",
+        name: "ball",
         isTurned: false,
         isFinished: false,
+        image: ball,
     },
     {
         id: 10,
-        color: "orange",
+        name: "ball",
         isTurned: false,
         isFinished: false,
+        image: ball,
+    },
+    {
+        id: 11,
+        name: "coffee",
+        isTurned: false,
+        isFinished: false,
+        image: coffee,
+    },
+    {
+        id: 12,
+        name: "coffee",
+        isTurned: false,
+        isFinished: false,
+        image: coffee,
+    },
+    {
+        id: 13,
+        name: "icecream",
+        isTurned: false,
+        isFinished: false,
+        image: icecream,
+    },
+    {
+        id: 14,
+        name: "icecream",
+        isTurned: false,
+        isFinished: false,
+        image: icecream,
+    },
+    {
+        id: 15,
+        name: "cup",
+        isTurned: false,
+        isFinished: false,
+        image: cup,
+    },
+    {
+        id: 16,
+        name: "cup",
+        isTurned: false,
+        isFinished: false,
+        image: cup,
+    },
+    {
+        id: 17,
+        name: "triangle",
+        isTurned: false,
+        isFinished: false,
+        image: triangle,
+    },
+    {
+        id: 18,
+        name: "triangle",
+        isTurned: false,
+        isFinished: false,
+        image: triangle,
+    },
+    {
+        id: 19,
+        name: "strawberry",
+        isTurned: false,
+        isFinished: false,
+        image: strawberry,
+    },
+    {
+        id: 20,
+        name: "strawberry",
+        isTurned: false,
+        isFinished: false,
+        image: strawberry,
     },
 ];
 
 export function shuffleCards(cards) {
-    for (let i = cards.length - 1; i > 0; i--) {
+    let cardsCopy = structuredClone(cards);
+    // let cardsCopy = [...cards];
+    for (let i = cardsCopy.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [cards[i], cards[j]] = [cards[j], cards[i]];
+        [cardsCopy[i], cardsCopy[j]] = [cardsCopy[j], cardsCopy[i]];
     }
-    return cards;
+    return cardsCopy;
 }

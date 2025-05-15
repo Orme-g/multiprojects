@@ -1,12 +1,18 @@
 .concentration-app {
     min-height: 100vh;
 }
-
+.buttons {
+    margin: 30px auto;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
 .game-field {
-    min-height: 500px;
+    min-height: 600px;
     width: 80%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(5, minmax(200px, 1fr));
-    gap: 50px;
+    grid-template-columns: repeat(5, minmax(150px, 1fr));
+    gap: 20px;
 }

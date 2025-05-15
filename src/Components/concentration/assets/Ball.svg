@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlSpace="preserve" xmlnsSerif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+<svg width="100%" height="100%" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <g id="Layer1">
         <g transform="matrix(1.5633,0,0,1.5633,-132.423,-133.676)">
             <path d="M328.289,177.332C328.289,177.332 380.178,216.071 382.411,267.876C382.411,267.876 374.555,318.223 341.051,346.356C311.208,371.414 291.507,386.366 228.5,385.304C228.5,385.304 257.661,382.75 285.929,287.626C285.929,287.626 300.016,235.327 297.562,183.332C297.562,183.332 319.587,187.941 328.289,177.332Z" style="fill:rgb(244,244,244);"/>

@@ -3,12 +3,18 @@
     height: 100%;
     width: 100%;
     position: relative;
-}
-.game-card.turn > .front-side {
-    transform: perspective(600px) rotateY(-180deg);
-}
-.game-card.turn > .back-side {
-    transform: perspective(600px) rotateY(0deg);
+    border-radius: 4px;
+    overflow: hidden;
+    &.turn {
+        .front-side {
+            transform: perspective(600px) rotateY(-180deg);
+        }
+    }
+    &.turn {
+        .back-side {
+            transform: perspective(600px) rotateY(0deg);
+        }
+    }
 }
 
 .front-side,
@@ -28,11 +34,51 @@
 
 .back-side {
     transform: perspective(600px) rotateY(180deg);
-    // background-color: red;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
 }
-// .game-card:hover > .front-side {
-//     transform: perspective(600px) rotateY(-180deg);
-// }
-// .game-card:hover > .back-side {
-//     transform: perspective(600px) rotateY(0deg);
-// }
+.back-side img {
+    height: 100%;
+    width: 100%;
+}
+.pair-found {
+    animation-name: found-animation;
+    animation-duration: 1s;
+}
+.game-finished {
+    animation-name: finish-game;
+    animation-duration: 2s;
+}
+
+@keyframes found-animation {
+    from {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    75% {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+@keyframes finish-game {
+    from {
+        transform: scale(1);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg) scale(1.1);
+    }
+    75% {
+        transform: rotate(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
