@@ -14,6 +14,9 @@ const ConcentrationApp = () => {
     const [action, setAction] = useState(null);
     const [pairsFound, setPairsFound] = useState(0);
     const [gameFinished, setGameFinished] = useState(false);
+    const [isGameStarted, setGameStarted] = useState(false);
+    const [small, setSmall] = useState(false);
+    const [displayGameField, setDisplayGameField] = useState("hide-game");
     useEffect(() => {
         if (turnedCardName.length === 2 && turnedCardName[0] === turnedCardName[1]) {
             const cardsCopy = [...cards];
@@ -46,19 +49,23 @@ const ConcentrationApp = () => {
         setIsModalOpen((isModalOpen) => !isModalOpen);
     }
     function handleButtonClick(action, ...args) {
-        if (
-            (turnedCardsIds.length < 1 && pairsFound < 1) ||
-            (cards.length > 0 && pairsFound === cards.length / 2)
-        ) {
+        if (!isGameStarted || gameFinished) {
             action(...args);
             return;
         }
-
         setAction(() => () => action(...args));
         setIsModalOpen(true);
     }
-
+    function gameStarter() {
+        if (isGameStarted) {
+            return;
+        }
+        setDisplayGameField("show-game");
+        setSmall((small) => !small);
+        setGameStarted(true);
+    }
     function playGame(cardsArray, cardsNumber) {
+        gameStarter();
         const playCards = cardsArray.slice(0, cardsNumber);
         setCards(shuffleCards(playCards));
         resetState();
@@ -67,7 +74,6 @@ const ConcentrationApp = () => {
         if (turnedCardsIds.length < 1 && pairsFound === 0) {
             return;
         }
-        // modalController();
         const cardsCopy = [...cards];
         cardsCopy.forEach((item) => {
             item.isFinished = false;
@@ -114,9 +120,10 @@ const ConcentrationApp = () => {
             gameFinished={gameFinished}
         />
     ));
+
     return (
         <div className="concentration-app">
-            <div className="buttons">
+            <div className={`buttons ${small ? "buttons-small" : ""}`}>
                 <Button onClick={() => handleButtonClick(playGame, cardsData, 10)}>
                     Play 10 Cards
                 </Button>
@@ -126,7 +133,7 @@ const ConcentrationApp = () => {
                 <Button onClick={() => handleButtonClick(restartGame)}>Restart</Button>
             </div>
 
-            <div className="game-field">{renderCards}</div>
+            <div className={`game-field ${displayGameField}`}>{renderCards}</div>
             <ModalNotice
                 action={action}
                 modalController={modalController}

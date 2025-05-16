@@ -30,6 +30,15 @@
 .front-side {
     transform: perspective(600px) rotateY(0deg);
     background-color: #fff;
+    // background-image: linear-gradient(
+    //     45deg,
+    //     rgba(255, 255, 255, 1) 0%,
+    //     rgba(255, 255, 255, 1) 17%,
+    //     rgb(185, 43, 43) 20%,
+    //     rgb(183, 41, 41) 30%,
+    //     rgba(255, 255, 255, 1) 33%,
+    //     rgba(255, 255, 255, 1) 100%
+    // );
 }
 
 .back-side {
@@ -37,6 +46,7 @@
     background-color: #fff;
     display: flex;
     justify-content: center;
+    background-size: 400% 400%;
 }
 .back-side img {
     height: 100%;
