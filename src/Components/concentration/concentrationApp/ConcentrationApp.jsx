@@ -49,7 +49,7 @@ const ConcentrationApp = () => {
         setIsModalOpen((isModalOpen) => !isModalOpen);
     }
     function handleButtonClick(action, ...args) {
-        if (!isGameStarted || gameFinished) {
+        if ((turnedCardsIds.length < 1 && pairsFound < 1) || gameFinished) {
             action(...args);
             return;
         }
