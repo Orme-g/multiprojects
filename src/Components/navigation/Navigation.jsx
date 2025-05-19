@@ -5,7 +5,7 @@ import "./navigation.scss";
 
 const Navigation = () => {
     const [menuState, setMenuState] = useState("hamburger");
-    const [displayList, setDisplayList] = useState("hide-list");
+    const [displayList, setDisplayList] = useState(false);
     function handleMenuClick() {
         if (menuState === "hamburger") {
             setMenuState("close");
@@ -16,11 +16,7 @@ const Navigation = () => {
         }
     }
     function toggleDisplayMenuList() {
-        if (displayList === "hide-list") {
-            setDisplayList("");
-        } else {
-            setDisplayList("hide-list");
-        }
+        setDisplayList((displayList) => !displayList);
     }
     return (
         <header className="header__links">
@@ -29,7 +25,11 @@ const Navigation = () => {
                 <span></span>
                 <span></span>
             </div>
-            <ul className={`header__links-list ${displayList}`}>
+            <div
+                onClick={handleMenuClick}
+                className={`mobile-menu-background ${displayList ? "" : "hide-wrapper"}`}
+            ></div>
+            <ul className={`header__links-list ${displayList ? "" : "hide-list"}`}>
                 <li className="header__links-item">
                     <NavLink to="/">Main Page</NavLink>
                 </li>
