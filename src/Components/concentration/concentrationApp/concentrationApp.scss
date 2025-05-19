@@ -47,8 +47,14 @@
         height: 40px;
         width: 90%;
     }
+    .buttons-small {
+        height: fit-content;
+    }
 }
-@media (max-width: 600px) {
+@media (max-width: 650px) {
+    .buttons {
+        flex-direction: column;
+    }
     .game-field {
         width: 95%;
         grid-template: 60px / repeat(5, 60px);
